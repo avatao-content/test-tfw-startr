@@ -1,0 +1,147 @@
+.column-wrapper{ 
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.column-header {
+    width: 100%;
+    height: 7.5vh;
+    font-weight: 600;
+    font-size: large;
+    border-bottom: 1px solid rgb(0, 146, 247);
+    border-top: 1px solid rgb(0, 146, 247);
+    text-align: center;
+    padding: 7px;
+}
+
+.language-column {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 20%;
+    margin: 0;
+    padding: 0;
+}
+
+.column-content {
+    width: 100%;
+    text-align: center;
+}
+
+.language-column > .column-content :nth-child(even) {
+    background-color: #f2f5ff;
+  }
+
+.language-column > .column-content :nth-child(odd) {
+    background-color: #fcfcfc;
+}
+
+.framework-column{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    border-left: 1px solid rgb(0, 146, 247);
+}
+
+.framework-column > .column-content :nth-child(odd) {
+    background-color: #f2f5ff;
+  }
+
+.framework-column > .column-content :nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+.module-column-selected{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 30%;
+    border-left: 1px solid rgb(0, 146, 247);
+}
+
+.module-column-selected > .column-content :nth-child(even) {
+    background-color: #f2f5ff;
+  }
+
+.module-column-selected > .column-content :nth-child(odd) {
+    background-color: #fcfcfc;
+}
+
+
+.module-column-all {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 30%;
+    border-left: 1px solid rgb(0, 146, 247);
+}
+
+.module-column-all > .column-content :nth-child(odd) {
+    background-color: #f2f5ff;
+  }
+
+.module-column-all > .column-content :nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+.row {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 5px;
+    height: 30px;
+    width: 100%;
+}
+
+.double-row {
+    height: 60px;
+}
+
+.row > input[type=radio] {
+    width: auto !important;
+    text-align: left;
+}
+
+.row > label {
+    background-color:rgba(0, 0, 0, 0) !important;
+    padding-left: 8px;
+}
+
+.btn {
+    border: none;
+    color: DodgerBlue;
+    font-size: 16px;
+    cursor: pointer;
+    width: 30px !important;
+    background-color:rgba(0, 0, 0, 0) !important;
+  }
+  
+.btn > i:hover {
+    color: RoyalBlue !important;
+}
+
+.btn > i {
+    background-color:rgba(0, 0, 0, 0) !important;
+}
+
+.btn:focus {
+    outline: 0 !important;
+}
+
+.row-header {
+    width: calc(100% - 30px);
+    text-align: center;
+    background-color:rgba(0, 0, 0, 0) !important;
+}
+
+.message {
+    background-color: #ffffff !important;
+    padding: 20px;
+}
