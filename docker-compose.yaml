@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  backend:
+    container_name: starter-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+
+  client:
+    container_name: starter-client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    depends_on:
+      - "backend"
+    environment:
+      - NODE_ENV=production
