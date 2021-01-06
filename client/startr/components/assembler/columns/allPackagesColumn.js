@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import styles from "./styles.module.css";
 
-class AllModulesColumn extends React.Component {
+class AllPackagesColumn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -48,27 +48,27 @@ class AllModulesColumn extends React.Component {
           />
         </div>
         <div className={styles["column-content"]}>
-          {this.props.children ? (
-            this.filterByKeyword(this.props.children).map((module) => (
+          {this.props.allPackages ? (
+            this.filterByKeyword(Object.keys(this.props.allPackages)).map((packageName) => (
               <div
                 className={styles.row + " " + styles["double-row"]}
-                key={classNames(module.name, "item")}
+                key={classNames(packageName, "item")}
               >
                 <div className={styles["row-header"]}>
-                  {module.name}
+                  {packageName}
                   <br />
-                  {module.version}
+                  {this.props.allPackages[packageName]}
                 </div>
                 <button className={styles.btn}>
                   <i
                     className="fa fa-plus-circle"
-                    onClick={(e) => this.addModule(module)}
+                    onClick={(e) => this.addModule({"name": packageName, "version": this.props.allPackages[packageName]})}
                   ></i>
                 </button>
               </div>
             ))
           ) : (
-            <div className={styles.message}> Please select a framework </div>
+            <div className={styles.message}> Please select a starter </div>
           )}
         </div>
       </div>
@@ -76,4 +76,4 @@ class AllModulesColumn extends React.Component {
   }
 }
 
-export default AllModulesColumn;
+export default AllPackagesColumn;

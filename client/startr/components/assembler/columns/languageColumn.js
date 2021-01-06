@@ -19,8 +19,8 @@ class LanguageColumn extends React.Component {
       >
         <div className={styles["column-header"]}>Languages</div>
         <div className={classNames(styles["column-content"], this.props.name)}>
-          {this.props.children ? (
-            this.props.children.map((language) => (
+          {this.props.languages ? (
+            this.props.languages.map((language) => (
               <div className={styles.row} key={classNames(language, "item")}>
                 <input
                   type="radio"

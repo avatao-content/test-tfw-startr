@@ -57,6 +57,24 @@
     background-color: #fcfcfc;
 }
 
+.starter-column{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    border-left: 1px solid rgb(0, 146, 247);
+}
+
+.starter-column > .column-content :nth-child(even) {
+    background-color: #f2f5ff;
+  }
+
+.starter-column > .column-content :nth-child(odd) {
+    background-color: #fcfcfc;
+}
+
 .module-column-selected{
     display: flex;
     flex-flow: column;
@@ -65,11 +83,11 @@
     border-left: 1px solid rgb(0, 146, 247);
 }
 
-.module-column-selected > .column-content :nth-child(even) {
+.module-column-selected > .column-content :nth-child(odd) {
     background-color: #f2f5ff;
   }
 
-.module-column-selected > .column-content :nth-child(odd) {
+.module-column-selected > .column-content :nth-child(even) {
     background-color: #fcfcfc;
 }
 
@@ -82,11 +100,11 @@
     border-left: 1px solid rgb(0, 146, 247);
 }
 
-.module-column-all > .column-content :nth-child(odd) {
+.module-column-all > .column-content :nth-child(even) {
     background-color: #f2f5ff;
   }
 
-.module-column-all > .column-content :nth-child(even) {
+.module-column-all > .column-content :nth-child(odd) {
     background-color: #fcfcfc;
 }
 

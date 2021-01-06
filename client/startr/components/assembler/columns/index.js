@@ -1,11 +1,13 @@
 import LanguageColumn from "./languageColumn";
 import FrameworkColumn from "./frameworkColumn";
-import AllModulesColumn from "./allModulesColumn";
-import SelectedModulesColumn from "./selectedModulesColumn";
+import StarterColumn from "./starterColumn";
+import AllPackagesColumn from "./allPackagesColumn";
+import SelectedPackagesColumn from "./selectedPackagesColumn";
 
 export {
   LanguageColumn,
   FrameworkColumn,
-  AllModulesColumn,
-  SelectedModulesColumn,
+  StarterColumn,
+  AllPackagesColumn,
+  SelectedPackagesColumn,
 };

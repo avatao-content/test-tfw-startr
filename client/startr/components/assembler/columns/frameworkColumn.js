@@ -19,8 +19,8 @@ class FrameworkColumn extends React.Component {
       >
         <div className={styles["column-header"]}>Frameworks</div>
         <div className={classNames(styles["column-content"], this.props.name)}>
-          {this.props.children ? (
-            this.props.children.map((framework) => (
+          {this.props.frameworks ? (
+            this.props.frameworks.map((framework) => (
               <div className={styles.row} key={classNames(framework, "item")}>
                 <input
                   type="radio"

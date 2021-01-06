@@ -4,7 +4,7 @@ import Modal from "../modal";
 import { ModalToggleButton } from "../button";
 import styles from "./styles.module.css";
 
-class SelectedModulesColumn extends React.Component {
+class SelectedPackagesColumn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,7 +12,7 @@ class SelectedModulesColumn extends React.Component {
     };
     this.removeModule = this.removeModule.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
-    this.addExtraDependency = this.addExtraDependency.bind(this);
+    this.addExtraPackage = this.addExtraPackage.bind(this);
   }
 
   removeModule(module) {
@@ -24,8 +24,8 @@ class SelectedModulesColumn extends React.Component {
     this.setState({ isModalOpen: !isModalOpen });
   }
 
-  addExtraDependency(dependency) {
-    this.props.addExtraDependency(dependency);
+  addExtraPackage(dependency) {
+    this.props.addExtraPackage(dependency);
   }
 
   render() {
@@ -40,36 +40,39 @@ class SelectedModulesColumn extends React.Component {
           <br />
           <ModalToggleButton
             onClick={this.toggleModal}
-            disabled={this.props.children ? false : true}
+            disabled={this.props.selectedPackages ? false : true}
           />
           <Modal
             isOpen={this.state.isModalOpen}
             onClose={this.toggleModal}
-            onSave={this.addExtraDependency}
+            onSave={this.addExtraPackage}
           />
         </div>
         <div className={styles["column-content"]}>
-          {this.props.children ? (
-            this.props.children.map((module) => (
+          {this.props.selectedPackages ? (
+            Object.keys(this.props.selectedPackages).map((packageName) => (
               <div
                 className={styles.row + " " + styles["double-row"]}
-                key={classNames(module.name, "item")}
+                key={classNames(packageName, "item")}
               >
                 <div className={styles["row-header"]}>
-                  {module.name}
+                  {packageName}
                   <br />
-                  {module.version}
+                  {this.props.selectedPackages[packageName]}
                 </div>
-                <button className={styles.btn}>
+                {!(this.props.requiredPackages[packageName]) ? (
+                  <button className={styles.btn}>
                   <i
                     className="fa fa-minus-circle"
-                    onClick={(e) => this.removeModule(module)}
+                    onClick={(e) => this.removeModule({"name": packageName, "version": this.props.selectedPackages[packageName]})}
                   ></i>
                 </button>
+                ): console.log(this.props.selectedPackages)
+                }
               </div>
             ))
           ) : (
-            <div className={styles.message}> Please select a framework </div>
+            <div className={styles.message}> Please select a starter </div>
           )}
         </div>
       </div>
@@ -77,4 +80,4 @@ class SelectedModulesColumn extends React.Component {
   }
 }
 
-export default SelectedModulesColumn;
+export default SelectedPackagesColumn;

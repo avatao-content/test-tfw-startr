@@ -21,13 +21,13 @@ def starter_info():
         )
     return {
         "Error": f"Missing key(s): {[key for key in required_keys if key not in request.args]}"
-    }
+    }, 400
 
 
 @bp.route("/assemble", methods=["POST"])
 def assemble_starter():
     required_keys = ("language", "framework", "starter")
-    if all(key in request.args for key in required_keys):
+    if all(key in request.json for key in required_keys):
         with Startr() as startr:
             response = make_response(
                 send_file(
@@ -35,7 +35,7 @@ def assemble_starter():
                         language_name=request.json.get("language"),
                         framework_name=request.json.get("framework"),
                         starter_name=request.json.get("starter"),
-                        extra_packages=request.json.get("modules"),
+                        extra_packages=request.json.get("packages"),
                     ),
                     as_attachment=True,
                 )
@@ -46,4 +46,4 @@ def assemble_starter():
         return response
     return {
         "Error": f"Missing key(s): {[key for key in required_keys if key not in request.args]}"
-    }
+    }, 400

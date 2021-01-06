@@ -13,9 +13,11 @@ class DownloadButton extends React.Component {
     var data = {
       language: this.props.language,
       framework: this.props.framework,
-      modules: this.props.modules,
+      starter: this.props.starter,
+      packages: this.props.packages,
     };
 
+    console.log(data);
     var resp = await fetch("http://localhost:5000/api/v1/assemble", {
       method: "POST",
       cache: "no-cache",
@@ -36,7 +38,7 @@ class DownloadButton extends React.Component {
         className={styles["download-button"]}
         onClick={this.downloadStarter}
         disabled={
-          !(this.props.language && this.props.framework && this.props.modules)
+          !(this.props.language && this.props.framework && this.props.starter && this.props.packages)
         }
       >
         Download
